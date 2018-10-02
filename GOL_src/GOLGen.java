@@ -114,6 +114,55 @@ public class GOLGen
 		pw.close();
 	}
 	
+	/*
+	S is interpreted as a bitvector
+	 */
+	void GOLGollyBitvec(int[][] traversal, String fileName, long[] S)
+	{
+		//n is dimension
+		int lim = traversal.length;
+		int dim = (int)Math.sqrt(traversal.length);
+		String[] rep = new String[dim];
+		for(int i = 0; i < dim; i++)
+		{
+			StringBuilder temp = new StringBuilder();
+			for(int j = 0; j < dim; j++)
+			{
+				temp.append("b");
+			}
+			rep[i] = temp.toString();
+		}
+		
+		for(int d = 0; d < lim; d++)
+		{
+			int num = (int)((S[d >> 6] >> (d & 0b111111)) & 1);
+			if(num == 1)
+				rep[traversal[d][1]] = replaceStringIndex(rep[traversal[d][1]],traversal[d][0],'o');
+		}
+		
+		PrintWriter pw = null;
+		try
+		{
+			pw = new PrintWriter(new File(fileName));
+		}
+		catch(Exception e)
+		{
+			System.out.println("File not found");
+			System.exit(1);
+		}
+		
+		
+		pw.println("#CXRLE Pos=0,0\n" +
+				"x = 2, y = 2, rule = B3/S23");
+		for(String s : rep)
+		{
+			pw.print(compressString(s) + "$");
+//			pw.print(s + "$");
+		}
+		pw.print("!");
+		pw.close();
+	}
+	
 	private String compressString(String s)
 	{
 		int currentCharCount = 1;

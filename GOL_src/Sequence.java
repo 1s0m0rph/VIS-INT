@@ -2,6 +2,42 @@ public class Sequence
 {
 	public Sequence(){}
 	
+	long[] subsequenceComplement(long[] S, int lim)
+	{
+		//returns S with complement of current S appended
+		
+		int ip = lim >> 6;
+		int jp = lim & 0b111111;
+		
+		for(int i = 0; i < S.length; i++)
+		{
+			for(int j = 0; j < 64; j++)
+			{
+				if(((i << 6) + j) >= lim)
+					return S;
+				
+				S[ip] |= ((~((1 << j) & S[i]) & (1 << (j))) >> j) << jp;
+				jp++;
+				if(jp == 64)
+				{
+					jp = 0;
+					ip++;
+				}
+			}
+		}
+		return S;
+	}
+	
+	long[] nThueMorse(int n)
+	{
+		long[] S = new long[n >> 5];
+		for(int lim = 1; lim < n; lim<<=1)
+		{
+			S = subsequenceComplement(S,lim);
+		}
+		
+		return S;
+	}
 	
 	boolean isPrime(long n)
 	{
