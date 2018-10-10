@@ -13,9 +13,13 @@ public class Main
 //		int n = 500;
 //		int sequenceLength = (int)Math.pow(n<<1,2);
 //		int[][] trav = u.getSpiral(n);
-		
+
 //		double epsilon = 2.5;//note that we use X^(1/epsilon) as our limit for checking
 		long[] S = sg.nNaturals(sequenceLength);
 		gg.GOLGollyBitvec(trav,"hilbert" + n + "NaturalsBitvec.rle",S,"B1357/S1357");
+		
+//		long m = (long)Math.pow(1<<n,2);
+//		long[] S = sg.nLinearRecurrenceModM(sequenceLength,m,1,1,1,1);
+//		gg.GOLGolly(trav,"hilbert" + n + "fibMod" + m + ".rle",S,"B3/S23");
 	}
 }

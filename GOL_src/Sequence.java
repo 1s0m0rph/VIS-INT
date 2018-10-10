@@ -228,4 +228,21 @@ public class Sequence
 		}
 		return s;
 	}
+	
+	/*
+	format is f(n+2) = a * f(n + 1) + b * f(n)
+	 */
+	long[] nLinearRecurrenceModM(int n, long m, long a, long b, long zeroTerm, long oneTerm)
+	{
+		long[] S = new long[n];
+		S[0] = zeroTerm;
+		S[1] = oneTerm;
+		
+		for(int i = 2; i < n; i++)
+		{
+			S[i] = ((a * S[i-2]) + (b * (S[i-1]))) % m;
+		}
+		
+		return S;
+	}
 }
