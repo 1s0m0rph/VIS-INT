@@ -57,7 +57,7 @@ public class GOLGen
 		pw.close();
 	}
 	
-	void GOLGolly(int[][] traversal, String fileName, long[] S)
+	void GOLGolly(int[][] traversal, String fileName, long[] S, String rule)
 	{
 		//n is dimension
 		int lim = traversal.length;
@@ -104,7 +104,7 @@ public class GOLGen
 		
 		
 		pw.println("#CXRLE Pos=0,0\n" +
-				"x = 2, y = 2, rule = B3/S23");
+				"x = 2, y = 2, rule = " + rule);
 		for(String s : rep)
 		{
 			pw.print(compressString(s) + "$");
@@ -117,7 +117,7 @@ public class GOLGen
 	/*
 	S is interpreted as a bitvector
 	 */
-	void GOLGollyBitvec(int[][] traversal, String fileName, long[] S)
+	void GOLGollyBitvec(int[][] traversal, String fileName, long[] S, String rule)
 	{
 		//n is dimension
 		int lim = traversal.length;
@@ -153,7 +153,7 @@ public class GOLGen
 		
 		
 		pw.println("#CXRLE Pos=0,0\n" +
-				"x = 2, y = 2, rule = B3/S23");
+				"x = 2, y = 2, rule = " + rule);
 		for(String s : rep)
 		{
 			pw.print(compressString(s) + "$");
