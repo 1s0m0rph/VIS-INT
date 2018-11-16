@@ -1,0 +1,11 @@
+
+a few notes:
+
+open index.html with a browser to use the tool
+
+1. Go to sequences, pick how many elements to draw, what mod to use, then choose a built-in sequence, or enter an OEIS-ID
+2. Go to controller, and click either "load built-in" or "load OEIS" depending on which one you want to use.
+3. You can start drawing at this point. You can also try to messing the setting settings to change the appearance.
+4. If you want to save the settings you've chosen, first click the save button on the top right, then go to the "JSON" tab on the menu and press "generate JSON", that JSON will be able to load those exact settings. 
+5. To load the settings, paste the JSON in the "Load JSON" text area, then click the "Load JSON" button in the "JSON" tab in the GUI menu.
+6. to add a new built-in sequence look at the source code and go to the "BUILTINSEQ" class, i've put some info there.
