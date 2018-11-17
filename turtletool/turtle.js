@@ -233,9 +233,9 @@ const config = new CONFIG();
 xhr.onload = function() {
     data = JSON.parse( xhr.response );
     convertedList = JSON.parse(data.stdout);
-    if(sageRequest.mod > 0){
+    if(seq.mod > 0){
         for(i = 0; i < convertedList.length; i++){
-            convertedList[i] = convertedList[i] % sageRequest.mod;
+            convertedList[i] = convertedList[i] % seq.mod;
         }
     }
     seq.list = convertedList;
