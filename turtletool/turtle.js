@@ -21,7 +21,7 @@ function loadInterface(savedStuff){
     canvasControllerGUI.add(canvasController, 'startDraw').name('Start/Resume drawing');
     canvasControllerGUI.add(canvasController, 'pauseDraw').name('Pause drawing');
     canvasControllerGUI.add(canvasController, 'resetDraw').name('Reset canvas');
-    canvasControllerGUI.add(canvasController, 'applyAll').name('Reset and Apply All');
+    canvasControllerGUI.add(canvasController, 'applyAll').name('Apply All');
 
     const seqFolderGUI = gui.addFolder('Sequence');
     seqFolderGUI.add(seq, 'count').name('No of Elements');
